@@ -8,52 +8,115 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" 
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         *{
             margin: 0%;
             padding: 0%;
             font-family: 'Inter', sans-serif;
         }
+        pre {
+          
+          white-space: pre-wrap;
+          border: 1px solid black;
+          border-radius: 7px;
+          background-color: #f5f5f5;
+        }
+        
+       
     </style>
 </head>
 <body>
     <div class="p-4 text-justify">
-        <div class="collapse collapse-arrow bg-base-200 mb-2">
+      <h2 class="text-center mb-2 text-3xl font-bold">Blog</h2>
+        <div class="collapse collapse-arrow bg-sky-200 mb-2">
             <input type="radio" name="my-accordion-2" checked="checked" /> 
             <div class="collapse-title text-xl font-medium">
                 Discuss the scope of <span class="border border-black rounded-md p-1 font-semibold">var</span>, <span class="border border-black rounded-md p-1 font-semibold">let</span>, and <span class="border border-black rounded-md p-1 font-semibold">const</span> 
             </div>
             <div class="collapse-content"> 
-            <p>In JavaScript, the scope of a variable determines where it can be accessed within the code. There are three types of scope: block scope, function scope, and global scope. The keywords `var`, `let`, and `const` are used to declare variables, but they have different scoping rules. <br>
+            <p class="">In JavaScript, the scope of a variable determines where it can be accessed within the code. There are three types of scope: block scope, function scope, and global scope. The keywords `var`, `let`, and `const` are used to declare variables, but they have different scoping rules. <br>
 
             `var` is function-scoped, meaning that if it is declared within a function, it can only be accessed within that function. If it is declared outside of any function, it has global scope and can be accessed from anywhere in the code. <br>
             
             `let` and `const`, on the other hand, are block-scoped. This means that if they are declared within a block (a section of code surrounded by `{}`), they can only be accessed within that block. If they are declared outside of any block, they have global scope.
             
             Here’s an example to illustrate the difference:
-            <img src="images/code-snippet-1.png" alt="" class="my-2">
-
-            In the first block, x is declared using let, so it can only be accessed within that block. In the second block, x is declared using var, so it can be accessed outside of the block as well    
+            <div class="my-2">
+              <pre>
+                <code style="font-family: 'Courier Prime', monospace;">
+      {
+        let x = 2;
+      }
+      // x can NOT be used here
+      
+      {
+          var x = 2;
+      }
+      // x CAN be used here
+                </code>
+              </pre>
+            </div>
+              
+            
+            In the first block, x is declared using let, so it can only be accessed within that block. In the second block, x is declared using var, so it can be accessed outside of the block as well.    
                 </p>
             </div>
           </div>
-          <div class="collapse collapse-arrow bg-base-200 mb-2">
+          <div class="collapse collapse-arrow bg-sky-200 mb-2">
             <input type="radio" name="my-accordion-2" /> 
             <div class="collapse-title text-xl font-medium">
-                Tell us the use cases of null and undefined
+                Tell us the use cases of <span class="border border-black rounded-md p-1 font-semibold">null</span> and <span class="border border-black rounded-md p-1 font-semibold">undefined</span> 
             </div>
             <div class="collapse-content"> 
-              <p>hello</p>
+              <p>In JavaScript, `null` and `undefined` are both used to represent the absence of a value, but they are used in slightly different scenarios:
+
+                - `undefined` is used when a variable has been declared but has not yet been assigned a value. For example, if we declare a variable `let x;` and then log it to the console with `console.log(x);`, we will get `undefined`.
+                
+                - `null` is an assignment value that represents no value or no object. It is used to indicate that a variable should have no value. For example, we might use null to indicate that a function argument is not being used, or to indicate the intentional absence of an object. <br>
+                
+                Here's an example:
+                <div class="my-2">
+                  <pre>
+                    <code style="font-family: 'Courier Prime', monospace;">
+      let myVar; // myVar is undefined
+      console.log(myVar); // logs "undefined"
+
+      myVar = null; // myVar is explicitly set to null
+      console.log(myVar); // logs "null"
+                    </code>
+                  </pre>
+                </div>
+                
+                
+                In practical terms, when defining a variable that is meant to later hold an object, it is advisable to initialize the variable to `null` as opposed to anything else. That way, you can explicitly check for the value `null` to determine if the variable has been filled with an object reference at a later time.
+                
+                Remember, JavaScript treats `null` and `undefined` differently when using strict equality (`===`) and type-converting equality (`==`). For instance, while `null == undefined` is true, `null === undefined` is false.
+                
+                </p>
             </div>
           </div>
-          <div class="collapse collapse-arrow bg-base-200 mb-2">
+          <div class="collapse collapse-arrow bg-sky-200 mb-2">
             <input type="radio" name="my-accordion-2" /> 
             <div class="collapse-title text-xl font-medium">
                 What do you mean by REST API?
             </div>
             <div class="collapse-content"> 
-              <p>hello</p>
+              <p>A REST API, or REpresentational State Transfer API, is a type of API (Application Programming Interface) that follows certain constraints of the REST architectural style. It allows for interaction with RESTful web services.
+
+                Here are some key principles of REST APIs: <br>
+                
+                1. <b>Uniform Interface:</b> All API requests for the same resource should look the same, regardless of where the request comes from. <br>
+                2. <b>Client-Server Decoupling:</b> In REST API design, client and server applications must be completely independent of each other. <br>
+                3. <b>Statelessness:</b> REST APIs are stateless, meaning that each request needs to include all the information necessary for processing it. <br>
+                4. <b>Cacheability:</b> When possible, resources should be cacheable on the client or server side. <br>
+                5. <b>Layered System Architecture:</b> In REST APIs, the calls and responses go through different layers. <br>
+                
+                REST APIs can be developed using virtually any programming language and support a variety of data formats. They provide a flexible and lightweight way to integrate applications and connect components in microservices architectures.
+                
+                </p>
             </div>
           </div>
     </div>

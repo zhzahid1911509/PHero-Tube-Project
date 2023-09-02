@@ -57,9 +57,11 @@ const displayVideoDetails = async (data, isSort) => {
         const imgUrl = 'images/icons8-blue-tick-32.png';
         const durationHour = parseInt(video.others.posted_date/3600);
         const durationMinute = parseInt((video.others.posted_date%3600)/60);
+        const hourText = durationHour + ' hours';
+        const minText = durationMinute + ' min ago';
         videoCard.innerHTML = `
         <figure class="relative"><img src="${video.thumbnail}" alt="Shoes" class="w-full h-[300px] rounded-lg"/>
-        <div class="absolute bg-black text-white mt-64 ml-72 rounded-lg p-1">${durationHour} hours ${durationMinute} min ago</div>
+        <div class="absolute bg-black text-white mt-64 ml-40 md:ml-48 lg:ml-56 xl:ml-72 rounded-lg">${durationHour>0?hourText:''} ${durationMinute>0?minText:''}</div>
         </figure>
         <div class="card-body">
         <div class="flex flex-row gap-2 items-center">
@@ -91,4 +93,4 @@ const sortVideos = () => {
 }
 
 videoCategory();
-videoDetails(1000)
+videoDetails(1000);
